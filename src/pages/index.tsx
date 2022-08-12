@@ -48,7 +48,7 @@ export default function Home() {
               pokemon={firstPokemon.data}
               vote={() => voteForRoundest(first)}
             />
-            <div className="p-8">vs</div>
+            <div className="p-8">vs.</div>
             <PokemonListing
               pokemon={secondPokemon.data}
               vote={() => voteForRoundest(second)}
