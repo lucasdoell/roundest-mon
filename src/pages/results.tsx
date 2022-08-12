@@ -2,11 +2,15 @@ import type { GetServerSideProps } from "next";
 import { prisma } from "@/backend/utils/prisma";
 import { AsyncReturnType } from "@/utils/ts-bs";
 import Image from "next/image";
+import Link from "next/link";
 
 const ResultsPage: React.FC<{ pokemon: PokemonQueryResult }> = (props) => {
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-2xl p-4">Results</h2>
+      <h2 className="text-2xl pt-4">Results</h2>
+      <h3 className="pb-4 text-sm text-gray-500">
+        <Link href="/">&larr; Back to Voting</Link>
+      </h3>
       <div className="flex flex-col w-full max-w-2xl border">
         {props.pokemon.map((currentPokemon, index) => {
           return <PokemonListing pokemon={currentPokemon} key={index} />;
