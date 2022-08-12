@@ -1,15 +1,15 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { withTRPC } from '@trpc/next';
-import type { AppRouter } from '@/backend/router';
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { withTRPC } from "@trpc/next";
+import type { AppRouter } from "@/backend/router";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
 function getBaseUrl() {
-  if (typeof window !== 'undefined') {
-    return '';
+  if (typeof window !== "undefined") {
+    return "";
   }
   // reference for vercel.com
   if (process.env.VERCEL_URL) {
@@ -44,4 +44,3 @@ export default withTRPC<AppRouter>({
    */
   ssr: false,
 })(MyApp);
-

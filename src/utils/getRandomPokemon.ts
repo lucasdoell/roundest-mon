@@ -7,11 +7,11 @@ export const getRandomPokemon: (notThisOne?: number) => number = (
 
   if (pokedexNumber !== notThisOne) return pokedexNumber;
   return getRandomPokemon(notThisOne);
-}
+};
 
 export const getOptionsForVote = () => {
   const firstId = getRandomPokemon();
   const secondId = getRandomPokemon(firstId);
 
   return [firstId, secondId];
-}
+};
