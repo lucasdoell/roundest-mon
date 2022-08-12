@@ -1,8 +1,12 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import { trpc } from "@/utils/trpc"
 
 export default function Home() {
+
+  const { data, isLoading } = trpc.useQuery(["hello", {text: "Lucas"}]);
+
+  if (isLoading) return <div>Loading...</div>
+  if (data) return <div>{data.greeting}</div>
+  
   return (
     <div className='h-screen w-screen flex flex-col justify-center  items-center'>
       <div className='text-2xl text-center'>Which Pokémon is rounder?</div>
