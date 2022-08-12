@@ -76,8 +76,6 @@ const PokemonListing: React.FC<{ pokemon: PokemonQueryResult[number] }> = ({
 export const getStaticProps: GetServerSideProps = async () => {
   const pokemonOrdered = await getPokemonInOrder();
 
-  console.log(pokemonOrdered);
-
   return {
     props: { pokemon: pokemonOrdered },
     revalidate: 60,

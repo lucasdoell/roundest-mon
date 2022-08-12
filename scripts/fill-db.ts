@@ -13,13 +13,13 @@ const doBackfill = async () => {
     }.png`,
   }));
 
-  console.log("pokemon? ", allPokemon);
+  // console.log("pokemon? ", allPokemon);
 
   const creation = await prisma.pokemon.createMany({
     data: formattedPokemon,
   });
 
-  console.log("created? ", creation);
+  // console.log("created? ", creation);
 };
 
 doBackfill();
