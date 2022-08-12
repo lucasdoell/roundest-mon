@@ -12,9 +12,11 @@ const ResultsPage: React.FC<{ pokemon: PokemonQueryResult }> = (props) => {
         <Link href="/">&larr; Back to Voting</Link>
       </h3>
       <div className="flex flex-col w-full max-w-2xl border">
-        {props.pokemon.map((currentPokemon, index) => {
-          return <PokemonListing pokemon={currentPokemon} key={index} />;
-        })}
+        {props.pokemon
+          .sort((a, b) => generateCountPercent(b) - generateCountPercent(a))
+          .map((currentPokemon, index) => {
+            return <PokemonListing pokemon={currentPokemon} key={index} />;
+          })}
       </div>
     </div>
   );
