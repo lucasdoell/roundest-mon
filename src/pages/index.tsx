@@ -13,12 +13,20 @@ export default function Home() {
   const firstPokemon = trpc.useQuery(["get-pokemon-by-id", { id: first }]);
   const secondPokemon = trpc.useQuery(["get-pokemon-by-id", { id: second }]);
 
+  const voteMutation = trpc.useMutation(["cast-vote"]);
+
   if (firstPokemon.isLoading || secondPokemon.isLoading) {
     return null;
   }
 
   const voteForRoundest = (selected: number) => {
     // todo: fire mutation to persist changes
+    if (selected === first) {
+      voteMutation.mutate({ votedFor: first, votedAgainst: second });
+    } else {
+      voteMutation.mutate({ votedFor: second, votedAgainst: first });
+    }
+
     updateIds(getOptionsForVote());
   };
 
