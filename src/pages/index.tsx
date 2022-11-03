@@ -5,6 +5,7 @@ import { inferQueryResponse } from "./api/trpc/[trpc]";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import Script from "next/script";
 
 const btn =
   "inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded-full text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
@@ -44,6 +45,14 @@ export default function Home() {
       <Head>
         <title>Voting | Roundest Pokémon</title>
       </Head>
+
+      <Script
+        async
+        defer
+        data-website-id="1d1b7d15-392c-46f0-a1e8-4d4379d2c299"
+        src="https://analytics.lucasdoell.com/umami.js"
+      ></Script>
+
       <div className="h-screen w-screen flex flex-col justify-between items-center">
         <div className="text-2xl text-center pt-8">
           Which Pokémon is rounder?
